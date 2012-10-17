@@ -1,0 +1,62 @@
+Tools for testing MRAID creatives
+
+I've been having trouble finding a good way test out MRAID creative in a
+realistic environment (acutally on a device). Interaction with a touchscreen
+is much different than on a desktop, so it seems really natural to me to want
+to check an ad on a real device. There are a whole bunch of reasons why. But
+there weren't tools around that made it possible.
+
+MRAID is a public standard:
+
+http://www.iab.net/guidelines/508676/mobile_guidance/mraid
+
+And fortunately the good folks at MoPub have open sourced their SDK, which
+includes MRAID support:
+
+https://github.com/mopub/mopub-client
+
+So most of the parts are there. One aspect that the MRAID spec doesn't cover
+however is actual ad delivery to the device. So these are some bits I hacked
+together so that I can load my own data into the MoPub test apps to play
+around with.
+
+It'll probably be pretty rough getting this stuff working if you want to try
+it on your own, but if you do you'll be able to get ads onto actual devices
+to try out. And you'll be able to do it without having to actually flight the
+ad on a network to do so.
+
+
+Requirements:
+- you'll need a checkout of the mopub-client repo
+- a working dev environment for Android and/or iOS
+- a server that can run a super simple PHP script
+- the script from the serve directory in this repo (serve_mraid.php)
+- an MRAID creative to test
+
+
+HOWTO
+=====
+- best to start off with putting the PHP code up on a server somewhere. You'll
+  need the public hostname of the server and the location of the script, cause
+  we're going to fill those into the SDK. Best to check the script with curl
+  to make sure everything is working properly:
+  curl --dump-header - http://thisismobility.com/ads/serve_mraid.php
+- if you're trying this out on Android (I use Eclipse for Android)
+  - import "existing project into workspace" for mopub-android-sdk
+  - import "existing project into workspace" for mopub-android-simpleadsdemo
+  - go into MoPubView.java
+    - update HOST to the hostname of your server
+    - update AD_HANDLER to the path of the PHP script
+  - now when you run the test app it'll pull content from your server
+- if you're trying to test the ads on iOS (instructions for XCode)
+  - use File / Open to open the SimpleAdsDemo project from the mopub SDK
+  - go into the MPConstants.h file and change HOSTNAME to your server name
+  - in MPAdManager.m change serverRequestURL to form urlString with your path
+    instead of /m/ad
+  - now you can run the test on iOS and it'll pull your ad creative
+- the server_mraid.php script is setup to support the two ad unit IDs used in
+  the test application and get the size right. The ads just load with a block
+  of red filling the creative area. And when you tap the ad it expands to
+  fullscreen and changes the background color to gree. Swapping out the actual
+  text in the serve_mraid.php script is the only way to change it right now,
+  ghetto, sorry.
