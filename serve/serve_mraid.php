@@ -12,12 +12,12 @@ if (isset($_GET['id'])) {
     header('X-Height: 50');
   }
 }
-header('X-Clickthrough: http://rowehl.com/red.php?t=1');
+header('X-Clickthrough: http://thisismobility.com/ads/red.php?t=1');
 header('X-Adtype: mraid');
 header('X-Creativeid: agltb3B1Yi1pbmNyEQsSCENyZWF0aXZlGPyl0RQM');
-header('X-Imptracker: http://rowehl.com/m/imp?c=agltb3B1Yi1pbmNyEQsSCENyZWF0aXZlGPyl0RQM&cid=agltb3B1Yi1pbmNyEQsSCENyZWF0aXZlGPyl0RQM&reqt=1343521811.0&req=e0a2c96e1448b898fdbc57a8aed1c40f&appid=498593803&id=agltb3B1Yi1pbmNyDAsSBFNpdGUYkaoMDA&udid=sha:C796271BDDDB1E752C35CB2D40789B877A179C19&rev=1.0000000&ck=5D18F');
+header('X-Imptracker: http://thisismobility.com/m/imp?c=agltb3B1Yi1pbmNyEQsSCENyZWF0aXZlGPyl0RQM&cid=agltb3B1Yi1pbmNyEQsSCENyZWF0aXZlGPyl0RQM&reqt=1343521811.0&req=e0a2c96e1448b898fdbc57a8aed1c40f&appid=498593803&id=agltb3B1Yi1pbmNyDAsSBFNpdGUYkaoMDA&udid=sha:C796271BDDDB1E752C35CB2D40789B877A179C19&rev=1.0000000&ck=5D18F');
 header('X-Refreshtime: 10000');
-header('X-Failurl: http://rowehl.com/m/ad?v=8&udid=sha:C796271BDDDB1E752C35CB2D40789B877A179C19&q=(null)&id=agltb3B1Yi1pbmNyDAsSBFNpdGUYkaoMDA&nv=1.6.0.1&o=p&sc=1.0&z=-0700&mr=1&exclude=agltb3B1Yi1pbmNyEAsSB0FkR3JvdXAYhNjQFAw');
+header('X-Failurl: http://thisismobility.com/m/ad?v=8&udid=sha:C796271BDDDB1E752C35CB2D40789B877A179C19&q=(null)&id=agltb3B1Yi1pbmNyDAsSBFNpdGUYkaoMDA&nv=1.6.0.1&o=p&sc=1.0&z=-0700&mr=1&exclude=agltb3B1Yi1pbmNyEAsSB0FkR3JvdXAYhNjQFAw');
 ?>
 <html>
   <head>
