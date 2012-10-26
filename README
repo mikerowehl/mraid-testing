@@ -61,4 +61,19 @@ HOWTO
   text in the serve_mraid.php script is the only way to change it right now,
   ghetto, sorry.
 
-- Miker
+
+Alternate method: HTTP Proxy
+Setting up a system-wide HTTP proxy on iOS is trivial, under the settings for
+an individual network when you're on wifi. So an alternative method if you
+don't want to compile iOS and Android applications of your own is to setup an
+HTTP proxy that swaps in the ads you want. I have a fork of Hoxy I've been
+using for this: https://github.com/mikerowehl/hoxy
+
+Just setup a rule like this, point your iOS device to whatever port hoxy is
+running on (8080 by default), and run any app with the advertising network
+you're looking to test:
+
+request: if $host eq "ads.mopub.com", $host.set-to("test.com") $url.replace("/m/ad", "/serve_mraid.php")
+
+Assuming you have serve_mraid.php setup to serve the ad creative you want,
+you'll be able to test it out in an actual application.
